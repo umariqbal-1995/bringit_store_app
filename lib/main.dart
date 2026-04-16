@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'core/services/notification_service.dart';
 import 'core/theme/app_theme.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
@@ -19,6 +20,7 @@ void main() async {
       iosBundleId: 'com.bringit.bringitStoreApp',
     ),
   );
+  await NotificationService().initialize();
   runApp(const BringItStoreApp());
 }
 
