@@ -1,6 +1,5 @@
 import Flutter
 import UIKit
-import GoogleMaps
 import FirebaseCore
 import FirebaseMessaging
 import UserNotifications
@@ -11,8 +10,6 @@ import UserNotifications
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    GMSServices.provideAPIKey("AIzaSyAQY1SQeZwn5Z5EPgryh4j_M_SKadyoRBo")
-
     // Firebase is initialised by the Flutter firebase_core plugin via
     // the GoogleService-Info.plist — FirebaseApp.configure() is called by
     // GeneratedPluginRegistrant. No manual call needed here.
