@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import '../../../core/network/dio_client.dart';
+import '../../../core/services/notification_service.dart';
 import '../../../core/storage/storage_service.dart';
 import '../../../routes/app_routes.dart';
 
@@ -42,6 +43,10 @@ class AuthController extends GetxController {
         final storeType = storeData?['type']?.toString();
         final isNew = response.data['isNew'] == true || response.data['data']?['isNew'] == true;
         if (storeType != null && storeType != 'null') StorageService.setStoreType(storeType);
+
+        // Register FCM token with backend after successful login
+        unawaited(NotificationService().registerTokenAfterLogin());
+
         if (isNew || storeType == null) {
           Get.offAllNamed(AppRoutes.storeTypeOnboarding);
         } else {
